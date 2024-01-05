@@ -5,8 +5,8 @@ export const LoadingSkeleton = () => {
         width={80}
         height={80}
         alt=""
-        src="/ai-icon.png"
-        className="animate-bounce"
+        src="/ai-icon.svg"
+        className="animate-bounce logoColor"
       />
     </div>
   );
