@@ -56,4 +56,13 @@
   body {
     @apply bg-background text-foreground;
   }
+  .logoColor{
+    filter:brightness(0) saturate(100%) invert(19%) sepia(30%) saturate(3674%) hue-rotate(217deg) brightness(92%) contrast(99%);
+  }
+  .dark .logoColor{
+    filter:brightness(0) invert(1);
+  }
+  .dark .bg-primary .text-white{
+    background-color:grey;
+  }
 }
