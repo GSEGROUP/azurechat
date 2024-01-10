@@ -1,1 +1,1 @@
-export const AI_NAME = "GSE GPT";
+export const AI_NAME = process.env.AI_NAME;
