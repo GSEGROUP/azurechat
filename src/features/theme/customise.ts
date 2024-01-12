@@ -1,1 +1,1 @@
-export const AI_NAME = process.env.AI_NAME;
+export const AI_NAME = process.env.AI_NAME ?? "MyGPT";

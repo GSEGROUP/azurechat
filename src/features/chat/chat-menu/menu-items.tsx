@@ -10,7 +10,6 @@ import { ChatThreadModel } from "../chat-services/models";
 
 interface Prop {
   menuItems: Array<ChatThreadModel>;
-  refresh: () => void
 }
 
 export const MenuItems: FC<Prop> = (props) => {
@@ -31,7 +30,7 @@ export const MenuItems: FC<Prop> = (props) => {
 
   const renameTitle = async (threadID: string, title: string) => {
     await userUpdateThreadTitle(threadID, title);
-    props.refresh()
+    router.refresh();
   };
 
   return (
