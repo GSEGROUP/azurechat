@@ -92,7 +92,7 @@ jobs:
           package: ${{ github.workspace }}/Nextjs-site.zip
 
       - name: 🚀 Deploy to Azure Web App2
-        id: deploy-to-webapp
+        id: deploy-to-webapp2
         uses: azure/webapps-deploy@v2
         with:
           app-name: ${{ secrets.AZURE_APP_SERVICE_NAME_MYGPT4 }}
