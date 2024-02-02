@@ -88,7 +88,7 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: ${{ secrets.AZURE_APP_SERVICE_NAME_MYGPT4 }}
+          app-name: ${{ secrets.AZURE_APP_SERVICE_NAME }}
           slot-name: 'mygpt4'
           package: ${{ github.workspace }}/Nextjs-site.zip
 
