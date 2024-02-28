@@ -5,22 +5,22 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --foreground: 231 53.2% 33.5%;
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 231 53.2% 33.5%;
     --primary: 231 53.2% 33.5%;
     --primary-foreground: 210 40% 98%;
     --secondary: 210 40% 96.1%;
     --secondary-foreground: 222.2 47.4% 11.2%;
     --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted-foreground: 0 0% 25.1%;
     --accent: 210 40% 96.1%;
     --accent-foreground: 222.2 47.4% 11.2%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
+    --border: 231 53.2% 33.5%;
     --input: 214.3 31.8% 91.4%;
     --ring: 231 53.2% 33.5%;
     --radius: 0.5rem;
@@ -64,5 +64,22 @@
   }
   .dark .bg-primary .text-white{
     background-color:grey;
+  }
+  .gseMessageArea{
+    padding: 20px;
+    border-radius: 3px;
+    background-color: whitesmoke;
+  }
+  .dark .gseMessageArea{
+    background-color: hsl(var(--secondary));
+  }
+  .text-muted-foreground\/50{
+    background-color:hsl(var(--primary));
+    color:hsl(var(--secondary)) !important;
+    border-radius: 3px;
+  }
+  .dark .text-muted-foreground\/50{
+    background-color:hsl(var(--secondary));
+    color:hsl(var(--primary)) !important;
   }
 }
