@@ -68,7 +68,7 @@ export const ChatMessageArea = (props: {
   }
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col gseMessageArea">
       <div className="h-7 flex items-center justify-between">
         <div className="flex gap-3">
           {profile}
