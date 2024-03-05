@@ -73,12 +73,12 @@
   .dark .gseMessageArea{
     background-color: hsl(var(--secondary));
   }
-  .text-muted-foreground\/50{
+  .text-muted-foreground.p-3{
     background-color:hsl(var(--primary));
     color:hsl(var(--secondary)) !important;
     border-radius: 3px;
   }
-  .dark .text-muted-foreground\/50{
+  .dark .text-muted-foreground.p-3{
     background-color:hsl(var(--secondary));
     color:hsl(var(--primary)) !important;
   }
