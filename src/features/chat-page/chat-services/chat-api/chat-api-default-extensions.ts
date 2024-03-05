@@ -6,6 +6,7 @@ import { OpenAIDALLEInstance } from "@/features/common/services/openai";
 import { uniqueId } from "@/features/common/util";
 import { GetImageUrl, UploadImageToStore } from "../chat-image-service";
 import { ChatThreadModel } from "../models";
+import { DALL_E3_ENABLE } from "@/features/theme/theme-config";
 
 export const GetDefaultExtensions = async (props: {
   chatThread: ChatThreadModel;
@@ -14,30 +15,32 @@ export const GetDefaultExtensions = async (props: {
 }): Promise<ServerActionResponse<Array<any>>> => {
   const defaultExtensions: Array<any> = [];
 
-  // Add image creation Extension
-  defaultExtensions.push({
-    type: "function",
-    function: {
-      function: async (args: any) =>
-        await executeCreateImage(
-          args,
-          props.chatThread.id,
-          props.userMessage,
-          props.signal
-        ),
-      parse: (input: string) => JSON.parse(input),
-      parameters: {
-        type: "object",
-        properties: {
-          prompt: { type: "string" },
+  if(DALL_E3_ENABLE)
+  {
+    // Add image creation Extension
+    defaultExtensions.push({
+      type: "function",
+      function: {
+        function: async (args: any) =>
+          await executeCreateImage(
+            args,
+            props.chatThread.id,
+            props.userMessage,
+            props.signal
+          ),
+        parse: (input: string) => JSON.parse(input),
+        parameters: {
+          type: "object",
+          properties: {
+            prompt: { type: "string" },
+          },
         },
+        description:
+          "You must only use this tool if the user asks you to create an image. You must only use this tool once per message.",
+        name: "create_img",
       },
-      description:
-        "You must only use this tool if the user asks you to create an image. You must only use this tool once per message.",
-      name: "create_img",
-    },
-  });
-
+    });
+  }
   // Add any other default Extension here
 
   return {
