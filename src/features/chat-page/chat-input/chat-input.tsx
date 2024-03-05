@@ -32,12 +32,17 @@ import {
   useTextToSpeech,
 } from "./speech/use-text-to-speech";
 
+import { SPEECH_ENABLE, VISION_ENABLE } from "@/features/theme/theme-config";
+
 export const ChatInput = () => {
   const { loading, input, chatThreadId } = useChat();
   const { uploadButtonLabel } = useFileStore();
   const { isPlaying } = useTextToSpeech();
   const { isMicrophoneReady } = useSpeechToText();
   const { rows } = useChatInputDynamicHeight();
+
+  const withVision = VISION_ENABLE;
+  const withSpeech = SPEECH_ENABLE;
 
   const submitButton = React.useRef<HTMLButtonElement>(null);
   const formRef = useRef<HTMLFormElement>(null);
@@ -85,14 +90,18 @@ export const ChatInput = () => {
           <PromptSlider />
         </ChatInputSecondaryActionArea>
         <ChatInputPrimaryActionArea>
-          <ImageInput />
-          <Microphone
-            startRecognition={() => speechToTextStore.startRecognition()}
-            stopRecognition={() => speechToTextStore.stopRecognition()}
-            isPlaying={isPlaying}
-            stopPlaying={() => textToSpeechStore.stopPlaying()}
-            isMicrophoneReady={isMicrophoneReady}
-          />
+          {withVision && (
+            <ImageInput />
+          )}
+          {withSpeech && (
+            <Microphone
+              startRecognition={() => speechToTextStore.startRecognition()}
+              stopRecognition={() => speechToTextStore.stopRecognition()}
+              isPlaying={isPlaying}
+              stopPlaying={() => textToSpeechStore.stopPlaying()}
+              isMicrophoneReady={isMicrophoneReady}
+            />
+          )}
           {loading === "loading" ? (
             <StopChat stop={() => chatStore.stopGeneratingMessages()} />
           ) : (
