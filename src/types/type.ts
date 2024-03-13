@@ -24,7 +24,8 @@ const azureEnvVars = [
   "AZURE_SPEECH_REGION",
   "AZURE_SPEECH_KEY",
   "AZURE_KEY_VAULT_NAME",
-  "AI_NAME"
+  "NEXT_PUBLIC_AI_NAME",
+  "NEXT_PUBLIC_DALL_E3_ENABLE"
 ] as const;
 
 type RequiredServerEnvKeys = (typeof azureEnvVars)[number];

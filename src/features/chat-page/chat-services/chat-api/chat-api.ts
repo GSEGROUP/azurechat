@@ -2,7 +2,7 @@
 import "server-only";
 
 import { getCurrentUser } from "@/features/auth-page/helpers";
-import { CHAT_DEFAULT_SYSTEM_PROMPT } from "@/features/theme/theme-config";
+import { CHAT_DEFAULT_SYSTEM_PROMPT, DALL_E3_ENABLE } from "@/features/theme/theme-config";
 import { ChatCompletionStreamingRunner } from "openai/resources/beta/chat/completions";
 import { ChatApiRAG } from "../chat-api/chat-api-rag";
 import { FindAllChatDocuments } from "../chat-document-service";
@@ -42,7 +42,13 @@ export const ChatAPIEntry = async (props: UserPrompt, signal: AbortSignal) => {
   ]);
   // Starting values for system and user prompt
   // Note that the system message will also get prepended with the extension execution steps. Please see ChatApiExtensions method.
-  currentChatThread.personaMessage = `${CHAT_DEFAULT_SYSTEM_PROMPT} \n\n ${currentChatThread.personaMessage}`;
+  var SYSTEM_PROMPT = CHAT_DEFAULT_SYSTEM_PROMPT;
+  if(DALL_E3_ENABLE=="NO"){
+    SYSTEM_PROMPT = SYSTEM_PROMPT+`
+    You can't use following functions:
+    1. create_img: You must reply to the user that you can't create image and use MyGPT4 instead.`
+  }
+  currentChatThread.personaMessage = `${SYSTEM_PROMPT} \n\n ${currentChatThread.personaMessage}`;
 
   let chatType: ChatTypes = "extensions";
 

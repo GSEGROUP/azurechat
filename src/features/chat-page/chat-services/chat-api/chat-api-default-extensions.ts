@@ -15,7 +15,7 @@ export const GetDefaultExtensions = async (props: {
 }): Promise<ServerActionResponse<Array<any>>> => {
   const defaultExtensions: Array<any> = [];
 
-  if(DALL_E3_ENABLE)
+  //if(DALL_E3_ENABLE == "YES")
   {
     // Add image creation Extension
     defaultExtensions.push({
