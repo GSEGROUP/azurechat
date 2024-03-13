@@ -41,7 +41,7 @@ export const ChatInput = () => {
   const { isMicrophoneReady } = useSpeechToText();
   const { rows } = useChatInputDynamicHeight();
 
-  const withVision = VISION_ENABLE;
+  const withVision = (VISION_ENABLE == "YES") ? true : false;
   const withSpeech = SPEECH_ENABLE;
 
   const submitButton = React.useRef<HTMLButtonElement>(null);
