@@ -21,6 +21,10 @@ class InputImageState {
 
   private fileToBase64(file: File): Promise<string> {
     return new Promise((resolve, reject) => {
+      if(file.size>1000000){
+        alert("File larger than 1 Mo");
+        reject("File larger than 1 Mo");
+      }
       const reader = new FileReader();
       reader.readAsDataURL(file);
       reader.onload = () => {
