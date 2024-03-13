@@ -14,4 +14,4 @@ You have access to the following functions:
 export const NEW_CHAT_NAME = "New chat";
 
 export const SPEECH_ENABLE = false;
-export const VISION_ENABLE = false;
+export const VISION_ENABLE = process.env.NEXT_PUBLIC_VISION_ENABLE ?? "NO";

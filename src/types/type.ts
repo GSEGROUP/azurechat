@@ -25,7 +25,8 @@ const azureEnvVars = [
   "AZURE_SPEECH_KEY",
   "AZURE_KEY_VAULT_NAME",
   "NEXT_PUBLIC_AI_NAME",
-  "NEXT_PUBLIC_DALL_E3_ENABLE"
+  "NEXT_PUBLIC_DALL_E3_ENABLE",
+  "NEXT_PUBLIC_VISION_ENABLE"
 ] as const;
 
 type RequiredServerEnvKeys = (typeof azureEnvVars)[number];
