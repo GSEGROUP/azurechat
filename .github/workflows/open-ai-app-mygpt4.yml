@@ -21,7 +21,12 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: "18.x"
-
+          
+      - name: Set Environment Variables
+        run: |
+          echo "NEXT_PUBLIC_VISION_ENABLE=YES" >> $GITHUB_ENV
+          echo "NEXT_PUBLIC_DALL_E3_ENABLE=YES" >> $GITHUB_ENV
+          
       - name: ⚙️ npm install and build
         run: |
           cd ./src
