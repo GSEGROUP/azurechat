@@ -24,7 +24,7 @@ jobs:
 
       - name: Set Environment Variables
         run: |
-          echo "NEXT_PUBLIC_AI_NAME=MyGPT 3.5" >> $GITHUB_ENV
+          echo "NEXT_PUBLIC_AI_NAME=MyGPT 4.1" >> $GITHUB_ENV
 
       - name: ⚙️ npm install and build
         run: |
