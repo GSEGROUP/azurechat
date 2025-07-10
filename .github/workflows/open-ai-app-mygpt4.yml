@@ -26,7 +26,7 @@ jobs:
         run: |
           echo "NEXT_PUBLIC_VISION_ENABLE=YES" >> $GITHUB_ENV
           echo "NEXT_PUBLIC_DALL_E3_ENABLE=YES" >> $GITHUB_ENV
-          echo "NEXT_PUBLIC_AI_NAME=MyGPT 4" >> $GITHUB_ENV
+          echo "NEXT_PUBLIC_AI_NAME=MyGPT 4o" >> $GITHUB_ENV
           
       - name: ⚙️ npm install and build
         run: |
